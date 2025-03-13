@@ -53,7 +53,7 @@
 
     /* Banner at the top of the page */
     .banner {
-        background: rgba(255, 107, 107, 0.7);
+        background: rgba(0, 0, 0, 0.8);
         color: white;
         padding: 20px;
         width: 100%;
@@ -75,52 +75,45 @@
         position: relative;
         z-index: 2;
     }
-
-    .confetti {
-        width: 10px;
-        height: 10px;
-        background: #ffeb3b;
-        position: absolute;
-        top: -10px;
-        animation: confetti-fall 5s linear infinite;
-    }
-
     .confetti:nth-child(2) {
-        left: 20%;
+        left: 10%;
         animation-delay: 0s;
         background: #4caf50;
     }
-
+    
     .confetti:nth-child(3) {
-        left: 40%;
+        left: 30%;
         animation-delay: 1s;
         background: #2196f3;
     }
-
+    
     .confetti:nth-child(4) {
-        left: 60%;
+        left: 50%;
         animation-delay: 2s;
         background: #ff5722;
     }
-
+    
     .confetti:nth-child(5) {
-        left: 80%;
-        animation-delay: 2s;
+        left: 70%;
+        animation-delay: 3s;
         background: #9c27b0;
     }
+    
     .confetti:nth-child(6) {
-        left: 80%;
-        animation-delay: 2s;
+        left: 90%;
+        animation-delay: 4s;
         background: #45b027;
     }
+    
     .confetti:nth-child(7) {
-        left: 80%;
+        left: 20%;
         animation-delay: 1s;
         background: #4027b0;
     }
+    
     .confetti:nth-child(8) {
-        left: 80%;
-        animation-delay: 0s;
+        left: 40%;
+        animation-delay: 2s;
         background: #8bb027;
     }
 
@@ -236,38 +229,38 @@
     
     <!-- Background Slideshow -->
     <div class="slideshow">
-        <div class="slide">
-            <img src="2.PNG" alt="Slide 2">
-        </div>
-        <div class="slide">
-            <img src="3.PNG" alt="Slide 3">
-        </div>
-        <div class="slide">
-            <img src="4.PNG" alt="Slide 4">
-        </div>
-        <div class="slide">
-            <img src="5.PNG" alt="Slide 5">
-        </div>
-        <div class="slide">
-            <img src="6.PNG" alt="Slide 6">
-        </div>
-        <div class="slide">
-            <img src="7.PNG" alt="Slide 7">
-        </div>
-        <div class="slide">
-            <img src="8.PNG" alt="Slide 8">
-        </div>
-        <div class="slide">
-            <img src="9.PNG" alt="Slide 9">
-        </div>
-        <div class="slide">
-            <img src="10.PNG" alt="Slide 10">
-        </div>
-        <div class="slide">
-            <img src="11.PNG" alt="Slide 11">
-        </div>
-      </div>
-    <div class="banner">
+    <div class="slide active">
+        <img src="2.PNG" alt="Slide 2">
+    </div>
+    <div class="slide">
+        <img src="3.PNG" alt="Slide 3">
+    </div>
+    <div class="slide">
+        <img src="4.PNG" alt="Slide 4">
+    </div>
+    <div class="slide">
+        <img src="5.PNG" alt="Slide 5">
+    </div>
+    <div class="slide">
+        <img src="6.PNG" alt="Slide 6">
+    </div>
+    <div class="slide">
+        <img src="7.PNG" alt="Slide 7">
+    </div>
+    <div class="slide">
+        <img src="8.PNG" alt="Slide 8">
+    </div>
+    <div class="slide">
+        <img src="9.PNG" alt="Slide 9">
+    </div>
+    <div class="slide">
+        <img src="10.PNG" alt="Slide 10">
+    </div>
+    <div class="slide">
+        <img src="11.PNG" alt="Slide 11">
+    </div>
+</div>
+    <div id="banner" class="banner hidden">
         <h2>Happy 20th Birthday!</h2>
         <div class="confetti"></div>
         <div class="confetti"></div>
@@ -296,17 +289,13 @@
     </div>
 
     <script>
-        / Wait for the page to load
-            document.addEventListener('DOMContentLoaded', function () {
-        // Get the banner element
-        const banner = document.getElementById('banner');
-
-        // Show the banner after 5 seconds (5000 milliseconds)
-        setTimeout(function () {
-            banner.classList.remove('hidden'); // Remove the hidden class
-            banner.classList.add('visible'); // Add the visible class
-        }, 5000); // 5000ms = 5 seconds
-    });
+        //document.addEventListener('DOMContentLoaded', function () {
+            const banner = document.getElementById('banner');
+            setTimeout(function () {
+                banner.classList.remove('hidden');
+                banner.classList.add('visible');
+            }, 5000); // 5000ms = 5 seconds
+        });
         // Slideshow functionality
         const slides = document.querySelectorAll('.slide');
         let currentSlide = 0;
