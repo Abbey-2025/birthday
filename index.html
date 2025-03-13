@@ -62,8 +62,13 @@
         overflow: hidden;
         box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
         z-index: 1;
+        transition: opacity 1s ease-in-out; /* Smooth fade-in effect */
     }
 
+    .banner.visible {
+        display: block; /* Show the banner */
+        opacity: 1; /* Fade in */
+    }
     .banner h2 {
         font-size: 28px;
         margin: 0;
@@ -130,10 +135,11 @@
 
     /* Birthday Card */
     .card {
-    background: rgba(255, 255, 255, 0.8);
+    background: rgba(0, 0, 0, 0.8); /* Semi-transparent black */
+    color: #fff; /* White text */
     padding: 30px;
     border-radius: 15px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 10px 30px rgba(255, 255, 255, 0.1); /* Light shadow */
     text-align: center;
     max-width: 400px;
     margin-top: 20px; /* Space between banner and card */
@@ -144,13 +150,13 @@
 
     h1 {
         font-size: 24px;
-        color: #333;
+        color: #fff;
         margin-bottom: 15px;
     }
 
     .message {
         font-size: 16px;
-        color: #555;
+        color: #ccc;
         line-height: 1.6;
         margin-bottom: 20px;
     }
@@ -194,8 +200,8 @@
         }
     }
     button {
-    background: #ff6b6b;
-    color: white;
+    background: #333; /* Dark grey button */
+    color: #fff;
     border: none;
     padding: 10px 20px;
     border-radius: 5px;
@@ -205,7 +211,7 @@
     }
 
     button:hover {
-        background: #ff4757;
+        background: #555;
     }
 
     .hidden {
@@ -290,6 +296,17 @@
     </div>
 
     <script>
+        / Wait for the page to load
+            document.addEventListener('DOMContentLoaded', function () {
+        // Get the banner element
+        const banner = document.getElementById('banner');
+
+        // Show the banner after 5 seconds (5000 milliseconds)
+        setTimeout(function () {
+            banner.classList.remove('hidden'); // Remove the hidden class
+            banner.classList.add('visible'); // Add the visible class
+        }, 5000); // 5000ms = 5 seconds
+    });
         // Slideshow functionality
         const slides = document.querySelectorAll('.slide');
         let currentSlide = 0;
